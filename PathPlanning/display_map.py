@@ -3,13 +3,15 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import json
 
+PATH_DATA_PATH = "path_data/path_data_rrt.csv"
+
 def display_map_and_paths(pair_id):
     # Load the map matrix from the JSON file
     with open(f"map_data/map_{pair_id}.json", 'r') as json_file:
         map_matrix = np.array(json.load(json_file))
 
     # Load the path data from the CSV file
-    path_data = pd.read_csv("path_data/path_data.csv")
+    path_data = pd.read_csv(PATH_DATA_PATH)
     rrt_path = path_data[(path_data['pair_id'] == pair_id) & (path_data['algo'] == 'RRT')][['x', 'y']].values
     astar_path = path_data[(path_data['pair_id'] == pair_id) & (path_data['algo'] == 'A*')][['x', 'y']].values
 
