@@ -32,7 +32,6 @@ def generate_obstacles(grid_max_x, grid_max_y):
         ox.append(0.0)
         oy.append(i)
 
-
     # Random obstacles
     num_obstacles = np.random.randint(2, 6)  # Randomly decide how many obstacles to generate
     for _ in range(num_obstacles):
