@@ -11,7 +11,7 @@ DISPLAY = False
 COLLECT_DATA = True
 COLLECT_PAIRS = False # Will collect both RRT and A* for a map
 VERBOSE = False
-DATASET_NUMBER = 2
+DATASET_NUMBER = 3
 
 def generate_obstacles(grid_max_x, grid_max_y):
     ox, oy = [], []
