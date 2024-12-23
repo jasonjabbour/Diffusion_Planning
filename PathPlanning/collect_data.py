@@ -13,6 +13,8 @@ COLLECT_PAIRS = False # Will collect both RRT and A* for a map
 VERBOSE = False
 DATASET_NUMBER = 3
 
+os.makedirs(f"dataset_{DATASET_NUMBER}", exist_ok=True)
+
 def generate_obstacles(grid_max_x, grid_max_y):
     ox, oy = [], []
 
@@ -127,8 +129,8 @@ def is_distance_sufficient(sx, sy, gx, gy, min_distance):
 
 def save_grid_image_and_data(ox, oy, sx, sy, gx, gy, pair_id, grid_size=100):
     # Ensure the directories exist
-    os.makedirs("map_data", exist_ok=True)
-    os.makedirs("map_images", exist_ok=True)
+    os.makedirs(f"dataset_{DATASET_NUMBER}/map_data", exist_ok=True)
+    os.makedirs(f"dataset_{DATASET_NUMBER}/map_images", exist_ok=True)
 
     # Initialize a matrix for the map
     map_matrix = np.zeros((grid_size, grid_size), dtype=int)
@@ -178,6 +180,7 @@ def save_paths(rrt_path, astar_path, sx, sy, ox, oy, gx, gy, grid_size, rrt_plan
     # Determine the next pair ID
     pair_id = 1
     csv_file_name = os.path.join(f'dataset_{DATASET_NUMBER}','path_data','path_data.csv')
+    os.makedirs(f"dataset_{DATASET_NUMBER}/path_data", exist_ok=True)
     write_header = not os.path.exists(csv_file_name)
         
     if not write_header:
