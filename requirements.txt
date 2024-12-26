@@ -1,7 +1,5 @@
 matplotlib
 torch
-torchvision
-torchaudio
 tensorboard
 pandas
 numpy
